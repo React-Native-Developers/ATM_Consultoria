@@ -16,14 +16,14 @@ const cliente2 = require('../imgs/cliente2.png');
 export default class CenaPrincipal extends Component {
   render() {
     return (
-      <View>
+      <View style={styles.backgroungView}>
 
         <View>
-          <StatusBar backgroundColor='#CCC' />
-          <BarraNavegacao />
+          <StatusBar backgroundColor='#B9C941' />
+          <BarraNavegacao voltar navigator={this.props.navigator} corfundo='#B9C941' />
         </View>
 
-        <View style={styles.backgroungView}>
+        <View>
 
           <View style={styles.title}>
             <Image source={detalheClientes} />
@@ -51,6 +51,7 @@ const styles = StyleSheet.create({
 
   backgroungView: {
     backgroundColor: 'white',
+    flex: 1
   },
   title: {
     flexDirection: 'row',
@@ -71,7 +72,7 @@ const styles = StyleSheet.create({
   },
   clientesText: {
     marginLeft: 20,
-    fontSize: 20
+    fontSize: 18
   }
 
 });
