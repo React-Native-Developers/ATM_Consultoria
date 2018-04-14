@@ -1,19 +1,32 @@
 import React, { Component } from 'react';
 import {
-  Platform,
-  StyleSheet,
-  Text,
   View
 } from 'react-native';
+import { 
+  Navigator 
+} from 'react-native-deprecated-custom-components';
 
-import BarraNavegacao from './src/components/BarraNavegacao';
+import CenaPrincipal from './src/components/CenaPrincipal';
+import CenaClientes from './src/components/CenaClientes';
 
 export default class App extends Component {
   render() {
     return (
-      <View>
-        <BarraNavegacao />
-      </View>
+        <Navigator 
+          initialRoute={{ id: 'a' }}
+          renderScene={(route, navigator) => {
+            /* definir a cena com base na rota */
+            if (route.id === 'a') {
+              //exibir a cenaPrincipal
+              return (<CenaPrincipal navigator={navigator} />);
+            }
+
+            if (route.id === 'b') {
+              //exibir a cenaClientes
+              return (<CenaClientes />);
+            }
+          }}
+        />
     );
   }
 }
